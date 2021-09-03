@@ -1,13 +1,13 @@
 package shoppingCart;
 
 
+import item.Item;
 import payment.PaymentStrategy;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Cart{
-
     private static Cart cart;
     private Map<Item,Integer> cartItems;
     private PaymentStrategy paymentStrategy;
@@ -32,7 +32,7 @@ public class Cart{
             cartItems.put(item,quantity);
     }
 
-    public synchronized void removeItem(Item item,int quantity){
+    public synchronized void removeItem(Item item, int quantity){
         if (cartItems!=null){
             if (cartItems.containsKey(item)){
                 int oldQty=cartItems.get(item);

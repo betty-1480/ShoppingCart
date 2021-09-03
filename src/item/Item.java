@@ -1,15 +1,17 @@
-package shoppingCart;
+package item;
 
 public class Item {
     private String itemId;
-    private String itemName;
     private Double price;
+    private ItemType itemType;
 
     public Item(String itemId, Double price){
         this.itemId=itemId;
         this.price=price;
     }
-    public void setItemName(String itemName){
-        this.itemName=itemName;
+
+    public void setItemType(ItemType itemType){
+        this.itemType=itemType;
     }
+
 }
