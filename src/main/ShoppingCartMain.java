@@ -12,8 +12,8 @@ import java.lang.reflect.Proxy;
 public class ShoppingCartMain {
 
     @SuppressWarnings("unchecked")
-
-    public static <T> T wrapWithLoggingProxy(T target, Class<T> klass) {
+    // method to initialise Proxy instance
+     static <T> T wrapWithLoggingProxy(T target, Class<T> klass) {
         return (T) Proxy.newProxyInstance(
                 klass.getClassLoader(),
                 new Class<?>[] {klass},
@@ -23,6 +23,7 @@ public class ShoppingCartMain {
     public static void main(String...args){
 
         Cart cart=Cart.getInstance();
+        wrapWithLoggingProxy(cart,PaymentStrategy.class);
 
         Item item1=new Vegetable("i001",10.00);
         Item item2=new Fruit("i002",20.00);
@@ -32,5 +33,4 @@ public class ShoppingCartMain {
         cart.setPaymentStrategy(new PayPal());
         cart.confirmPayment();
     }
-
 }
