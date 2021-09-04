@@ -1,8 +1,9 @@
 package item;
 
-public class Vegetable implements ItemType {
-    @Override
-    public ItemType getItemType(){
-        return new Vegetable();
+public class Vegetable extends Item {
+
+    public Vegetable(String itemId, Double price){
+        super(itemId,price);
     }
+
 }
